@@ -139,7 +139,7 @@
             font-weight: 500;
             color: var(--apple-text-muted);
             margin-bottom: 30px;
-            max-width: 600px;
+            max-width: 700px;
             margin-left: auto;
             margin-right: auto;
         }
@@ -167,7 +167,7 @@
             text-align: center;
             font-size: 40px;
             line-height: 1.1;
-            margin-bottom: 50px;
+            margin-bottom: 20px;
             max-width: 700px;
             margin-left: auto;
             margin-right: auto;
@@ -247,6 +247,77 @@
             display: block;
         }
 
+        /* Tech Specs Grid */
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .spec-group {
+            background: white;
+            padding: 24px;
+            border-radius: var(--border-radius-small);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+
+        .spec-group h4 {
+            font-size: 16px;
+            color: var(--apple-blue);
+            margin-bottom: 12px;
+            border-bottom: 1px solid #f5f5f7;
+            padding-bottom: 6px;
+        }
+
+        .spec-group ul {
+            list-style: none;
+        }
+
+        .spec-group li {
+            font-size: 14px;
+            color: var(--apple-text);
+            margin-bottom: 8px;
+            opacity: 0.9;
+        }
+
+        /* Keyboard Shortcuts Styling */
+        .shortcut-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 16px;
+            margin-top: 30px;
+        }
+
+        .shortcut-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--apple-section-bg);
+            padding: 14px 20px;
+            border-radius: var(--border-radius-small);
+        }
+
+        .shortcut-item span {
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        kbd {
+            background-color: #ffffff;
+            border: 1px solid #d1d1d6;
+            border-radius: 6px;
+            box-shadow: 0 2px 0 #d1d1d6;
+            color: var(--apple-text);
+            display: inline-block;
+            font-family: ui-monospace, monospace;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 3px 8px;
+            white-space: nowrap;
+        }
+
         .features-bento {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -268,14 +339,6 @@
         .bento-card p {
             font-size: 15px;
             color: var(--apple-text-muted);
-        }
-
-        .install-section {
-            background-color: var(--apple-section-bg);
-            border-radius: var(--border-radius-large);
-            padding: 70px 0;
-            margin-top: 40px;
-            margin-bottom: 40px;
         }
 
         .os-setup-container {
@@ -309,21 +372,6 @@
             color: var(--apple-text);
         }
 
-        .step-item p {
-            color: var(--apple-text-muted);
-            font-size: 14px;
-            margin-top: 4px;
-            margin-left: 24px;
-        }
-
-        code, pre {
-            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-            background-color: #f5f5f7;
-            padding: 3px 6px;
-            border-radius: 6px;
-            font-size: 13px;
-        }
-
         pre {
             display: block;
             background-color: #1d1d1f;
@@ -332,7 +380,8 @@
             border-radius: 8px;
             overflow-x: auto;
             margin-top: 8px;
-            margin-left: 24px;
+            font-family: ui-monospace, monospace;
+            font-size: 13px;
         }
 
         footer {
@@ -359,9 +408,10 @@
         <div class="container nav-content">
             <div class="nav-logo">NovaX7</div>
             <ul class="nav-links">
-                <li><a href="#downloads">Downloads</a></li>
-                <li><a href="#library">Library</a></li>
-                <li><a href="#customize">Customize</a></li>
+                <li><a href="#downloads">Downloader</a></li>
+                <li><a href="#library">Library & Playlists</a></li>
+                <li><a href="#specs">Full Specs</a></li>
+                <li><a href="#shortcuts">Shortcuts</a></li>
                 <li><a href="#install">Setup</a></li>
                 <li><a href="https://github.com/NovaX7-Universal/NovaX7/archive/refs/heads/main.zip" class="btn-nav">Download App</a></li>
             </ul>
@@ -371,31 +421,31 @@
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="container">
-            <span class="badge">Windows & Mac</span>
+            <span class="badge">Windows & Mac — PC & Laptop Only</span>
             <h1>NovaX7. Refined Media Control.</h1>
-            <p class="tagline">The ultimate, local, DRM-free media universe on your PC or Laptop.</p>
+            <p class="tagline">📢 Hello Editors! The Program is ready! Download from anywhere, completely local and DRM-free.</p>
             <a href="https://github.com/NovaX7-Universal/NovaX7/archive/refs/heads/main.zip" class="btn-large">
-                🚀 Download client (.zip)
+                🚀 Download Client (.zip)
             </a>
-            <p style="font-size: 14px; color: var(--apple-text-muted); margin-top: 15px;">A powerful media library, universal downloader, converter, and player in one sleek local package.</p>
+            <p style="font-size: 14px; color: var(--apple-text-muted); margin-top: 15px;">An absolute all-in-one entertainment ecosystem operating completely offline on your hardware configuration.</p>
         </div>
     </section>
 
     <!-- Main Features Showcase -->
     <section id="downloads">
         <div class="container">
-            <h2 class="section-headline">Your Downloader. Without Limits.</h2>
-            <p class="section-intro-text">Fetch, manage, and enjoy media from over 1,000 sites, completely local, completely DRM-free.</p>
+            <h2 class="section-headline">Your Downloader. Powered by yt-dlp.</h2>
+            <p class="section-intro-text">Fetch, manage, and enjoy media from over 1,000 sites with custom quality control and audio/video format processing overrides.</p>
             
-            <!-- Showcase 1: Downloads & Browser -->
             <div class="showcase-block">
                 <div class="showcase-text">
                     <h3>Built-in Media Browser</h3>
-                    <p>Navigate YouTube, SoundCloud, and hundreds of other platforms directly inside NovaX7. Use the integrated Brave search engine or specific platform shortcuts to find content natively.</p>
+                    <p>Navigate YouTube, SoundCloud, Bandcamp, Vimeo, and Twitch natively inside NovaX7. Use specific platform shortcuts to extract your target entertainment directly.</p>
                     <ul>
-                        <li>Download Video up to clean 4K resolution (MP4, MKV, GIF).</li>
-                        <li>Fetch Audio up to 320kbps (MP3, FLAC, WAV, OGG).</li>
-                        <li>DRM-Free content, ready for your offline collection.</li>
+                        <li>Download Audio (MP3, FLAC, WAV, M4A, OGG).</li>
+                        <li>Download Video up to clean 4K resolution (MP4, MKV, AVI, MOV, WEBM, GIF).</li>
+                        <li>Integrated pop-out browser environment execution.</li>
+                        <li>Automated batch or single page downloading links detection.</li>
                     </ul>
                 </div>
                 <div class="screenshot-container">
@@ -408,17 +458,18 @@
     <!-- Library Section -->
     <section id="library" style="background-color: var(--apple-section-bg);">
         <div class="container">
-            <h2 class="section-headline">Your Library. Organized.</h2>
+            <h2 class="section-headline">Audio & Video Libraries. Synced.</h2>
+            <p class="section-intro-text">Import raw media directly into dedicated asset directories. NovaX7 reads, logs, and processes structural attributes on launch.</p>
 
             <div class="showcase-block reverse">
                 <div class="showcase-text">
-                    <h3>Media Library Management</h3>
-                    <p>NovaX7 builds your sanctuary. Import local files and folders effortlessly. Your music and videos automatically populate the sleek library view, powered by the full flexibility of the VLC engine.</p>
+                    <h3>Library Management & Playlist Sharing</h3>
+                    <p>Build custom lists with mixed audio/video structures. With the new global sharing network, upload lists to access offline entertainment globally via cloud access keys.</p>
                     <ul>
-                        <li>Automatic metadata & cover art extraction.</li>
-                        <li>Smart views: Recently Played, Most Played, Favorites.</li>
-                        <li>Robust Playlist system with custom covers and descriptions.</li>
-                        <li><strong>NEW:</strong> Share playlists via code download.</li>
+                        <li>Automatic metadata parsing & cover art rendering.</li>
+                        <li>Play count tracking, Favorites, Recently Played, and Most Played dashboards.</li>
+                        <li><strong>NEW Playlist Sharing:</strong> Generate and inject sync keys to auto-download complete track catalogs instantly.</li>
+                        <li>Drag & drop track queuing and persistent list order retention.</li>
                     </ul>
                 </div>
                 <div class="screenshot-container">
@@ -428,42 +479,112 @@
         </div>
     </section>
 
-    <!-- Core Program Functions -->
-    <section>
+    <!-- Tech Specs Full Inventory Dashboard -->
+    <section id="specs">
         <div class="container">
-            <h2 class="section-headline">Built for Power. Designed for Simplicity.</h2>
-            <div class="features-bento">
-                <div class="bento-card">
-                    <h4>🔄 Converter</h4>
-                    <p>Seamlessly convert between any audio or video format (e.g., Video → Audio, Audio → Video). Fully compatible universal H.264 + AAC output encoding presets ready.</p>
+            <h2 class="section-headline">The Blueprint. Everything Included.</h2>
+            <p class="section-intro-text">NovaX7 is a heavy-duty suite designed to put full localized command back into your hands.</p>
+            
+            <div class="specs-grid">
+                <div class="spec-group">
+                    <h4>🎵 Audio Library</h4>
+                    <ul>
+                        <li>• Import files & folders</li>
+                        <li>• Meta / Cover art extraction</li>
+                        <li>• Custom tag & title editor</li>
+                        <li>• Built-in lyrics manager</li>
+                        <li>• Compact visual views</li>
+                        <li>• Play count & stat metrics</li>
+                    </ul>
                 </div>
-                <div class="bento-card">
-                    <h4>▶️ Advanced Player</h4>
-                    <p>Full VLC-powered engine supports smooth audio and video playback, fullscreen mode, sleep timer, track queue view, shuffle, and loop modes.</p>
+                <div class="spec-group">
+                    <h4>🎬 Video Library</h4>
+                    <ul>
+                        <li>• Dedicated video workspace</li>
+                        <li>• Generated layout previews</li>
+                        <li>• Dynamic sorting arrays</li>
+                        <li>• MP4, MKV, AVI support</li>
+                        <li>• MOV, WEBM, GIF playback</li>
+                        <li>• Zero buffering architecture</li>
+                    </ul>
                 </div>
-                <div class="bento-card">
-                    <h4>⚡ High Performance</h4>
-                    <p>Built completely with Python and PyQt6. Optimized entirely for secure local operation on your PC or Laptop desktop layout.</p>
+                <div class="spec-group">
+                    <h4>📂 Playlists & Sync</h4>
+                    <ul>
+                        <li>• Infinite visual track lists</li>
+                        <li>• Custom descriptions & graphics</li>
+                        <li>• Mixed format processing</li>
+                        <li>• Drag & drop position locking</li>
+                        <li>• Share Code generation</li>
+                        <li>• Auto-fetch via sync codes</li>
+                    </ul>
+                </div>
+                <div class="spec-group">
+                    <h4>▶️ Engine & Player</h4>
+                    <ul>
+                        <li>• Native VLC player core</li>
+                        <li>• Linear crossfade transitions</li>
+                        <li>• Adaptive pop-out viewport</li>
+                        <li>• Sleep timer with fadeout</li>
+                        <li>• Complete queue management</li>
+                        <li>• Local resume checkpoints</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="specs-grid" style="margin-top: 24px;">
+                <div class="spec-group">
+                    <h4>🔄 Converter Layout</h4>
+                    <ul>
+                        <li>• Audio ➔ Audio transformations</li>
+                        <li>• Video ➔ Video encoding</li>
+                        <li>• Video extraction ➔ Audio</li>
+                        <li>• Audio rendering ➔ Video loops</li>
+                        <li>• H.264 + AAC system matching</li>
+                    </ul>
+                </div>
+                <div class="spec-group">
+                    <h4>🎨 Workspace Themes</h4>
+                    <ul>
+                        <li>• 13 custom styled dark/light themes</li>
+                        <li>• Midnight, Dracula, Nord, Sepia</li>
+                        <li>• Catppuccin, Glass profiles</li>
+                        <li>• Dynamic interface zoom slider</li>
+                        <li>• Total system font overrides</li>
+                    </ul>
+                </div>
+                <div class="spec-group">
+                    <h4>⚙️ Integration Controls</h4>
+                    <ul>
+                        <li>• Discord Rich Presence links</li>
+                        <li>• English / German languages</li>
+                        <li>• AES-256 local credential vault</li>
+                        <li>• System Macro Hotkey script</li>
+                        <li>• Local configuration profiles</li>
+                    </ul>
+                </div>
+                <div class="spec-group">
+                    <h4>🎮 Built-in Bonus</h4>
+                    <ul>
+                        <li>• Mini Block Blast emulator</li>
+                        <li>• Persistent scoring tracker</li>
+                        <li>• Interactive drag-drop matrix</li>
+                        <li>• Combo multipliers code</li>
+                        <li>• Instant hot-reset</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Customization Section -->
-    <section id="customize" style="background-color: var(--apple-section-bg);">
+    <!-- Customization Layout Profile -->
+    <section style="background-color: var(--apple-section-bg);">
         <div class="container">
-            <h2 class="section-headline">Make It Yours. In Every Color.</h2>
-
+            <h2 class="section-headline">Personalized Aesthetics.</h2>
             <div class="showcase-block">
                 <div class="showcase-text">
-                    <h3>Visual Themes & Styling</h3>
-                    <p>NovaX7 adapts to your aesthetic. Choose from 13 beautiful built-in styling profiles including Midnight, Dracula, Nord, Catppuccin, and Liquid Glass to personalize your layout.</p>
-                    <ul>
-                        <li>Switch layout themes instantly.</li>
-                        <li>Adjust custom color overrides for accents, text, and panels.</li>
-                        <li>Adjust font type, custom font sizes, and overall UI zoom scaling.</li>
-                        <li>Toggle compact list view modes or cover thumbnails on the fly.</li>
-                    </ul>
+                    <h3>Visual Customization Overrides</h3>
+                    <p>Toggle fluid layouts matching your localized environment setup. Cycle through 13 profiles including Midnight, Liquid Glass, Nord, and Dracula alongside dynamic text resizing adjustments.</p>
                 </div>
                 <div class="screenshot-container">
                     <img src="themes.PNG" alt="NovaX7 Theme Customization Preferences Window">
@@ -472,20 +593,17 @@
         </div>
     </section>
 
-    <!-- Bonus Functions Section -->
+    <!-- Utilities panel showcase -->
     <section>
         <div class="container">
-            <h2 class="section-headline">More Built-in Extras.</h2>
-            <p class="section-intro-text">It’s not just a media manager; NovaX7 includes essential local utilities built right into your dashboard.</p>
-
+            <h2 class="section-headline">Integrated Automation Utilities.</h2>
             <div class="showcase-block reverse">
                 <div class="showcase-text">
-                    <h3>Utility Extras Workspace</h3>
-                    <p>Activate essential local productivity tools integrated directly into your system client. Simple, secure, and running offline.</p>
+                    <h3>Productivity Extras Panel</h3>
+                    <p>Run administrative local helper tools straight from your core workspace hub. Secure, unmonitored, offline operations.</p>
                     <ul>
-                        <li><strong>Auto Clicker:</strong> Automate repetitive mouse clicks with high speed. Toggle globally with F2 or custom hotkeys.</li>
-                        <li><strong>Password Vault:</strong> Store, edit, and fill your logins and credentials securely using local AES-256 system encryption.</li>
-                        <li>More productivity and automated tools dropping natively in upcoming updates.</li>
+                        <li><strong>High-Speed Auto Clicker:</strong> Loop hardware inputs seamlessly. Toggle macros globally with <kbd>F2</kbd>.</li>
+                        <li><strong>Password Vault:</strong> Secure client logins in encrypted storage containers managed via local profiles.</li>
                     </ul>
                 </div>
                 <div class="screenshot-container">
@@ -495,48 +613,66 @@
         </div>
     </section>
 
-    <!-- Installation Section -->
+    <!-- Keyboard Shortcuts Layout Dashboard -->
+    <section id="shortcuts" style="background-color: var(--apple-section-bg);">
+        <div class="container">
+            <h2 class="section-headline">Master Control. At Your Fingertips.</h2>
+            <p class="section-intro-text">Navigate and interact with NovaX7 at lightning speed using standard physical input macros.</p>
+            
+            <div class="shortcut-grid">
+                <div class="shortcut-item"><span>Play / Pause</span><kbd>Space</kbd></div>
+                <div class="shortcut-item"><span>Seek 5s Forward/Back</span><kbd>←</kbd> / <kbd>→</kbd></div>
+                <div class="shortcut-item"><span>Next Track</span><kbd>Ctrl + →</kbd></div>
+                <div class="shortcut-item"><span>Previous Track</span><kbd>Ctrl + ←</kbd></div>
+                <div class="shortcut-item"><span>Adjust Volume Array</span><kbd>Ctrl + ↑</kbd> / <kbd>↓</kbd></div>
+                <div class="shortcut-item"><span>Toggle Loop Array</span><kbd>Ctrl + L</kbd></div>
+                <div class="shortcut-item"><span>Toggle Track Shuffle</span><kbd>Ctrl + S</kbd></div>
+                <div class="shortcut-item"><span>Target Focus Search</span><kbd>Ctrl + F</kbd></div>
+                <div class="shortcut-item"><span>Launch Local Import</span><kbd>Ctrl + I</kbd></div>
+                <div class="shortcut-item"><span>Refresh Media Library</span><kbd>F5</kbd></div>
+                <div class="shortcut-item"><span>Remove Selected Asset</span><kbd>Delete</kbd></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Installation Instructions Layout -->
     <section id="install">
         <div class="container">
-            <h2 class="section-headline">Simple Step-by-Step Setup.</h2>
-            <p class="section-intro-text">Configure NovaX7 on your environment. Built exclusively for PC & Laptop system execution.</p>
+            <h2 class="section-headline">Simple Deployment Framework.</h2>
+            <p class="section-intro-text">Initialize the Python suite on your system using deployment steps below.</p>
             
             <div class="os-setup-container">
-                <!-- Windows Card -->
                 <div class="os-card">
                     <h3 class="os-title">🪟 Windows Setup</h3>
                     <ol class="step-list">
-                        <li class="step-item">Open your system console command prompt (`cmd`).</li>
-                        <li class="step-item">Install Python environment:
+                        <li class="step-item">Open command prompt terminal console (`cmd`).</li>
+                        <li class="step-item">Deploy standard Python engine:
                             <pre>winget install Python.Python.3</pre>
                         </li>
-                        <li class="step-item">Install VLC Media Player (from videolan.org or via prompt):
+                        <li class="step-item">Install core VideoLAN VLC client player binary:
                             <pre>winget install VideoLAN.VLC</pre>
                         </li>
-                        <li class="step-item">Open your extracted folder directory in terminal and install requirements:
+                        <li class="step-item">Install the explicit program framework dependencies:
                             <pre>pip install PyQt6 python-vlc mutagen yt-dlp imageio-ffmpeg pypresence</pre>
-                            <p><em>(Optional for media browser)</em>: `pip install PyQt6-WebEngine`</p>
-                            <p><em>Shortcut:</em> Or hit <kbd>Win</kbd> + <kbd>R</kbd> and run `pip install -r requirements.txt` directly inside the folder.</p>
                         </li>
-                        <li class="step-item">Launch NovaX7 application client:
+                        <li class="step-item">Boot up the main software package application matrix:
                             <pre>python NovaX7_7_1_0.py</pre>
                         </li>
                     </ol>
                 </div>
 
-                <!-- Mac Card -->
                 <div class="os-card">
                     <h3 class="os-title">🍎 macOS Setup</h3>
                     <ol class="step-list">
-                        <li class="step-item">Open system Spotlight Search (`CMD + Space`) and launch your **Terminal**.</li>
-                        <li class="step-item">Install the Homebrew package manager tool setup:
+                        <li class="step-item">Launch Mac Terminal environment console using Spotlight search.</li>
+                        <li class="step-item">Inject Homebrew package manager dependencies tools:
                             <pre>/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</pre>
                         </li>
-                        <li class="step-item">Download Python environment, VLC player cask, and dependencies:
+                        <li class="step-item">Pull the system configuration runtimes and script engines:
                             <pre>brew install python --cask vlc && pip3 install PyQt6 python-vlc mutagen yt-dlp imageio-ffmpeg pypresence</pre>
                         </li>
-                        <li class="step-item">Open Finder, navigate to your Nova folder directory, right-click and click **"New Terminal at Folder"**.</li>
-                        <li class="step-item">Initialize the software program script:
+                        <li class="step-item">Right-click target program folder, choose **"New Terminal at Folder"**.</li>
+                        <li class="step-item">Initialize program application script runtime execution:
                             <pre>python3 NovaX7_7_1_0.py</pre>
                         </li>
                     </ol>
