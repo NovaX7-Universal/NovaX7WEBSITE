@@ -222,7 +222,7 @@
             width: 24px;
             height: 24px;
             object-fit: contain;
-            filter: invert(1); /* Macht das schwarze Logo auf dem dunklen Button weiß */
+            filter: invert(1);
         }
 
         .section-headline {
@@ -731,8 +731,11 @@
                         <li class="step-item">Install core VideoLAN VLC client player binary:
                             <pre>winget install VideoLAN.VLC</pre>
                         </li>
-                        <li class="step-item">Install the explicit program framework dependencies:
-                            <pre>pip install PyQt6 python-vlc PyQt6-WebEngine mutagen yt-dlp imageio-ffmpeg pypresence</pre>
+                        <li class="step-item">Install the required framework dependencies (Option A - automatic file scan):
+                            <pre>pip install -r requirements.txt</pre>
+                        </li>
+                        <li class="step-item">Or deploy explicit dependencies manually (Option B):
+                            <pre>pip install PyQt6 PyQt6-WebEngine python-vlc mutagen yt-dlp imageio-ffmpeg pypresence</pre>
                         </li>
                         <li class="step-item">Boot up the main software package application matrix:
                             <pre>python NovaX7_7_1_0.py</pre>
@@ -747,7 +750,7 @@
                         <li class="step-item">Inject Homebrew package manager dependencies tools:
                             <pre>/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</pre>
                         </li>
-                        <li class="step-item">Pull the system configuration runtimes and script engines:
+                        <li class="step-item">Pull the system configuration runtimes, VLC engine and all script modules:
                             <pre>brew install python --cask vlc && pip3 install PyQt6 PyQt6-WebEngine python-vlc mutagen yt-dlp imageio-ffmpeg pypresence</pre>
                         </li>
                         <li class="step-item">Right-click target program folder, choose **"New Terminal at Folder"**.</li>
@@ -784,19 +787,18 @@
         const observerOptions = {
             root: null,
             rootMargin: '0px',
-            threshold: 0.1 // Löst aus, sobald 10% der Sektion sichtbar sind
+            threshold: 0.1
         };
 
         const observer = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('active');
-                    observer.unobserve(entry.target); // Animation wird nur einmal abgespielt
+                    observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
 
-        // Alle Sektionen mit der Klasse .scroll-reveal ins Visier nehmen
         document.querySelectorAll('.scroll-reveal').forEach(section => {
             observer.observe(section);
         });
