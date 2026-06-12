@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NovaX7 | Your Local Media Universe. Redefined.</title>
+    
+    <!-- FAVICON (Zeigt das Logo im Browser-Tab an) -->
+    <link rel="icon" type="image/png" href="nova_logo.png">
+    
     <style>
         :root {
             --apple-bg: #ffffff;
@@ -85,6 +89,18 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+        }
+
+        .nav-logo-container {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-logo-img {
+            width: 22px;
+            height: 22px;
+            object-fit: contain;
         }
 
         .nav-logo {
@@ -192,7 +208,6 @@
             transform: scale(0.98);
         }
 
-        /* Big GitHub Button */
         .btn-github {
             display: inline-flex;
             align-items: center;
@@ -480,7 +495,10 @@
     <!-- Navigation -->
     <div class="nav-wrapper">
         <div class="container nav-content">
-            <div class="nav-logo">NovaX7</div>
+            <div class="nav-logo-container">
+                <img src="nova_logo.png" alt="Nova Logo" class="nav-logo-img">
+                <div class="nav-logo">NovaX7</div>
+            </div>
             <ul class="nav-links">
                 <li><a href="#downloads">Downloader</a></li>
                 <li><a href="#library">Library & Playlists</a></li>
