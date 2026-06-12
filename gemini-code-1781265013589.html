@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NovaX7 | Your Local Media Universe. Redefined.</title>
+    <style>
+        :root {
+            --apple-bg: #ffffff;
+            --apple-section-bg: #f5f5f7;
+            --apple-text: #1d1d1f;
+            --apple-text-muted: #86868b;
+            --apple-blue: #0071e3;
+            --apple-blue-hover: #0077ed;
+            --border-radius-large: 24px;
+            --border-radius-small: 12px;
+            --font-stack: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-stack);
+            background-color: var(--apple-bg);
+            color: var(--apple-text);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 22px;
+        }
+
+        h1, h2, h3, h4 {
+            letter-spacing: -0.015em;
+            font-weight: 600;
+        }
+
+        a {
+            color: var(--apple-blue);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: var(--apple-blue-hover);
+        }
+
+        .nav-wrapper {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .nav-content {
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-logo {
+            font-size: 19px;
+            font-weight: 600;
+            color: var(--apple-text);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            font-size: 12px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--apple-text);
+            opacity: 0.8;
+        }
+
+        .nav-links a:hover {
+            opacity: 1;
+        }
+
+        .btn-nav {
+            font-size: 11px;
+            background-color: var(--apple-blue);
+            color: white !important;
+            padding: 4px 10px;
+            border-radius: 980px;
+            font-weight: 500;
+            opacity: 1 !important;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .hero-section {
+            text-align: center;
+            padding-top: 100px;
+            padding-bottom: 60px;
+        }
+
+        .hero-section .badge {
+            display: inline-block;
+            background-color: #e8e8ed;
+            color: #6e6e73;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: 980px;
+            margin-bottom: 12px;
+        }
+
+        .hero-section h1 {
+            font-size: 56px;
+            line-height: 1.07143;
+            margin-bottom: 15px;
+        }
+
+        .hero-section p.tagline {
+            font-size: 24px;
+            line-height: 1.16667;
+            font-weight: 500;
+            color: var(--apple-text-muted);
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-large {
+            display: inline-block;
+            background-color: var(--apple-blue);
+            color: white;
+            padding: 18px 31px;
+            border-radius: 980px;
+            font-size: 17px;
+            font-weight: 600;
+            transition: background 0.2s, transform 0.1s;
+        }
+
+        .btn-large:hover {
+            background-color: var(--apple-blue-hover);
+        }
+
+        .btn-large:active {
+            transform: scale(0.98);
+        }
+
+        .section-headline {
+            text-align: center;
+            font-size: 40px;
+            line-height: 1.1;
+            margin-bottom: 50px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section-intro-text {
+            text-align: center;
+            font-size: 21px;
+            color: var(--apple-text-muted);
+            margin-bottom: 70px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .showcase-block {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            margin-bottom: 100px;
+        }
+
+        .showcase-block.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .showcase-text {
+            flex: 1;
+        }
+
+        .showcase-text h3 {
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        .showcase-text p {
+            font-size: 17px;
+            color: var(--apple-text-muted);
+            margin-bottom: 20px;
+        }
+
+        .showcase-text ul {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .showcase-text li {
+            font-size: 15px;
+            color: var(--apple-text);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .showcase-text li::before {
+            content: '✓';
+            color: var(--apple-blue);
+            font-weight: bold;
+        }
+
+        .screenshot-container {
+            flex: 1.5;
+            position: relative;
+            background: #121214;
+            border-radius: 18px;
+            padding: 12px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+            overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .screenshot-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            display: block;
+        }
+
+        .features-bento {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .bento-card {
+            background-color: var(--apple-section-bg);
+            padding: 30px;
+            border-radius: var(--border-radius-large);
+            text-align: center;
+        }
+
+        .bento-card h4 {
+            font-size: 21px;
+            margin-bottom: 10px;
+        }
+
+        .bento-card p {
+            font-size: 15px;
+            color: var(--apple-text-muted);
+        }
+
+        .install-section {
+            background-color: var(--apple-section-bg);
+            border-radius: var(--border-radius-large);
+            padding: 70px 0;
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+
+        .os-setup-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .os-card {
+            background: white;
+            padding: 40px;
+            border-radius: var(--border-radius-large);
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+
+        .os-title {
+            font-size: 24px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .step-list {
+            list-style: decimal inside;
+        }
+
+        .step-item {
+            font-size: 15px;
+            margin-bottom: 18px;
+            color: var(--apple-text);
+        }
+
+        .step-item p {
+            color: var(--apple-text-muted);
+            font-size: 14px;
+            margin-top: 4px;
+            margin-left: 24px;
+        }
+
+        code, pre {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+            background-color: #f5f5f7;
+            padding: 3px 6px;
+            border-radius: 6px;
+            font-size: 13px;
+        }
+
+        pre {
+            display: block;
+            background-color: #1d1d1f;
+            color: #d8d8d8;
+            padding: 16px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin-top: 8px;
+            margin-left: 24px;
+        }
+
+        footer {
+            background-color: var(--apple-section-bg);
+            padding: 40px 0;
+            font-size: 12px;
+            color: var(--apple-text-muted);
+            text-align: center;
+        }
+
+        @media (max-width: 800px) {
+            .hero-section h1 { font-size: 40px; }
+            .section-headline { font-size: 32px; }
+            .showcase-block { flex-direction: column !important; text-align: center; gap: 30px; }
+            .showcase-text li { justify-content: center; }
+            .os-setup-container { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <div class="nav-wrapper">
+        <div class="container nav-content">
+            <div class="nav-logo">NovaX7</div>
+            <ul class="nav-links">
+                <li><a href="#downloads">Downloads</a></li>
+                <li><a href="#library">Library</a></li>
+                <li><a href="#customize">Customize</a></li>
+                <li><a href="#install">Setup</a></li>
+                <li><a href="https://github.com/NovaX7-Universal/NovaX7/archive/refs/heads/main.zip" class="btn-nav">Download App</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <span class="badge">Windows & Mac</span>
+            <h1>NovaX7. Refined Media Control.</h1>
+            <p class="tagline">The ultimate, local, DRM-free media universe on your PC or Laptop.</p>
+            <a href="https://github.com/NovaX7-Universal/NovaX7/archive/refs/heads/main.zip" class="btn-large">
+                🚀 Download client (.zip)
+            </a>
+            <p style="font-size: 14px; color: var(--apple-text-muted); margin-top: 15px;">A powerful media library, universal downloader, converter, and player in one sleek local package.</p>
+        </div>
+    </section>
+
+    <!-- Main Features Showcase -->
+    <section id="downloads">
+        <div class="container">
+            <h2 class="section-headline">Your Downloader. Without Limits.</h2>
+            <p class="section-intro-text">Fetch, manage, and enjoy media from over 1,000 sites, completely local, completely DRM-free.</p>
+            
+            <!-- Showcase 1: Downloads & Browser (Screenshot 2026-06-12 134603.png) -->
+            <div class="showcase-block">
+                <div class="showcase-text">
+                    <h3>Built-in Media Browser</h3>
+                    <p>Navigate YouTube, SoundCloud, and hundreds of other platforms directly inside NovaX7. Use the integrated Brave search engine or specific platform shortcuts to find content natively.</p>
+                    <ul>
+                        <li>Download Video up to clean 4K resolution (MP4, MKV, GIF).</li>
+                        <li>Fetch Audio up to 320kbps (MP3, FLAC, WAV, OGG).</li>
+                        <li>DRM-Free content, ready for your offline collection.</li>
+                    </ul>
+                </div>
+                <div class="screenshot-container">
+                    <img src="https://raw.githubusercontent.com/NovaX7-Universal/NovaX7/main/Screenshot%202026-06-12%20134603.png" alt="Built-in Web Media Browser Interface">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Library Section (Screenshot 2026-06-12 134553.png) -->
+    <section id="library" style="background-color: var(--apple-section-bg);">
+        <div class="container">
+            <h2 class="section-headline">Your Library. Organized.</h2>
+
+            <div class="showcase-block reverse">
+                <div class="showcase-text">
+                    <h3>Media Library Management</h3>
+                    <p>NovaX7 builds your sanctuary. Import local files and folders effortlessly. Your music and videos automatically populate the sleek library view, powered by the full flexibility of the VLC engine.</p>
+                    <ul>
+                        <li>Automatic metadata & cover art extraction.</li>
+                        <li>Smart views: Recently Played, Most Played, Favorites.</li>
+                        <li>Robust Playlist system with custom covers and descriptions.</li>
+                        <li><strong>NEW:</strong> Share playlists via code download.</li>
+                    </ul>
+                </div>
+                <div class="screenshot-container">
+                    <img src="https://raw.githubusercontent.com/NovaX7-Universal/NovaX7/main/Screenshot%202026-06-12%20134553.png" alt="NovaX7 Track and Songs Library Dashboard">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Program Functions (Explanation) -->
+    <section>
+        <div class="container">
+            <h2 class="section-headline">Built for Power. Designed for Simplicity.</h2>
+            <div class="features-bento">
+                <div class="bento-card">
+                    <h4>🔄 Converter</h4>
+                    <p>Seamlessly convert between any audio or video format (e.g., Video → Audio, Audio → Video). Fully compatible universal H.264 + AAC output encoding presets ready.</p>
+                </div>
+                <div class="bento-card">
+                    <h4>▶️ Advanced Player</h4>
+                    <p>Full VLC-powered engine supports smooth audio and video playback, fullscreen mode, sleep timer, track queue view, shuffle, and loop modes.</p>
+                </div>
+                <div class="bento-card">
+                    <h4>⚡ High Performance</h4>
+                    <p>Built completely with Python and PyQt6. Optimized entirely for secure local operation on your PC or Laptop desktop layout.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customization Section (Screenshot 2026-06-12 134612.png) -->
+    <section id="customize" style="background-color: var(--apple-section-bg);">
+        <div class="container">
+            <h2 class="section-headline">Make It Yours. In Every Color.</h2>
+
+            <div class="showcase-block">
+                <div class="showcase-text">
+                    <h3>Visual Themes & Styling</h3>
+                    <p>NovaX7 adapts to your aesthetic. Choose from 13 beautiful built-in styling profiles including Midnight, Dracula, Nord, Catppuccin, and Liquid Glass to personalize your layout.</p>
+                    <ul>
+                        <li>Switch layout themes instantly.</li>
+                        <li>Adjust custom color overrides for accents, text, and panels.</li>
+                        <li>Adjust font type, custom font sizes, and overall UI zoom scaling.</li>
+                        <li>Toggle compact list view modes or cover thumbnails on the fly.</li>
+                    </ul>
+                </div>
+                <div class="screenshot-container">
+                    <img src="https://raw.githubusercontent.com/NovaX7-Universal/NovaX7/main/Screenshot%202026-06-12%20134612.png" alt="NovaX7 Theme Customization Preferences Window">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bonus Functions Section (Screenshot 2026-06-12 134542.png) -->
+    <section>
+        <div class="container">
+            <h2 class="section-headline">More Built-in Extras.</h2>
+            <p class="section-intro-text">It’s not just a media manager; NovaX7 includes essential local utilities built right into your dashboard.</p>
+
+            <div class="showcase-block reverse">
+                <div class="showcase-text">
+                    <h3>Utility Extras Workspace</h3>
+                    <p>Activate essential local productivity tools integrated directly into your system client. Simple, secure, and running offline.</p>
+                    <ul>
+                        <li><strong>Auto Clicker:</strong> Automate repetitive mouse clicks with high speed. Toggle globally with F2 or custom hotkeys.</li>
+                        <li><strong>Password Vault:</strong> Store, edit, and fill your logins and credentials securely using local AES-256 system encryption.</li>
+                        <li>More productivity and automated tools dropping natively in upcoming updates.</li>
+                    </ul>
+                </div>
+                <div class="screenshot-container">
+                    <img src="https://raw.githubusercontent.com/NovaX7-Universal/NovaX7/main/Screenshot%202026-06-12%20134542.png" alt="NovaX7 Extras Utilities Panel Dashboard">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Installation Section -->
+    <section id="install">
+        <div class="container">
+            <h2 class="section-headline">Simple Step-by-Step Setup.</h2>
+            <p class="section-intro-text">Configure NovaX7 on your environment. Built exclusively for PC & Laptop system execution.</p>
+            
+            <div class="os-setup-container">
+                <!-- Windows Card -->
+                <div class="os-card">
+                    <h3 class="os-title">🪟 Windows Setup</h3>
+                    <ol class="step-list">
+                        <li class="step-item">Open your system console command prompt (`cmd`).</li>
+                        <li class="step-item">Install Python environment:
+                            <pre>winget install Python.Python.3</pre>
+                        </li>
+                        <li class="step-item">Install VLC Media Player (from videolan.org or via prompt):
+                            <pre>winget install VideoLAN.VLC</pre>
+                        </li>
+                        <li class="step-item">Open your extracted folder directory in terminal and install requirements:
+                            <pre>pip install PyQt6 python-vlc mutagen yt-dlp imageio-ffmpeg pypresence</pre>
+                            <p><em>(Optional for media browser)</em>: `pip install PyQt6-WebEngine`</p>
+                            <p><em>Shortcut:</em> Or hit <kbd>Win</kbd> + <kbd>R</kbd> and run `pip install -r requirements.txt` directly inside the folder.</p>
+                        </li>
+                        <li class="step-item">Launch NovaX7 application client:
+                            <pre>python NovaX7_7_1_0.py</pre>
+                        </li>
+                    </ol>
+                </div>
+
+                <!-- Mac Card -->
+                <div class="os-card">
+                    <h3 class="os-title">🍎 macOS Setup</h3>
+                    <ol class="step-list">
+                        <li class="step-item">Open system Spotlight Search (`CMD + Space`) and launch your **Terminal**.</li>
+                        <li class="step-item">Install the Homebrew package manager tool setup:
+                            <pre>/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</pre>
+                        </li>
+                        <li class="step-item">Download Python environment, VLC player cask, and dependencies:
+                            <pre>brew install python --cask vlc && pip3 install PyQt6 python-vlc mutagen yt-dlp imageio-ffmpeg pypresence</pre>
+                        </li>
+                        <li class="step-item">Open Finder, navigate to your Nova folder directory, right-click and click **"New Terminal at Folder"**.</li>
+                        <li class="step-item">Initialize the software program script:
+                            <pre>python3 NovaX7_7_1_0.py</pre>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section style="background-color: var(--apple-section-bg); text-align: center; border-top: 1px solid rgba(0,0,0,0.05);">
+        <div class="container">
+            <h2 class="section-headline">Experience NovaX7 Today.</h2>
+            <a href="https://github.com/NovaX7-Universal/NovaX7/archive/refs/heads/main.zip" class="btn-large">
+                🚀 Download Latest Archive (.zip)
+            </a>
+            <p style="font-size: 15px; color: var(--apple-text-muted); margin-top: 15px;">Completely local. Universal control. DRM-Free.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>Thanks for testing NovaX7! 🚀 This program operates fully offline, natively on your hardware architecture.</p>
+            <p style="margin-top: 10px;">PC & Laptop systems only. Explore the official source repository on <a href="https://github.com/NovaX7-Universal/NovaX7">GitHub</a>.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
