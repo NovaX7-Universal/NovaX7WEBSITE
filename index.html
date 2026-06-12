@@ -33,6 +33,7 @@
             color: var(--apple-text);
             line-height: 1.5;
             -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
         }
 
         .container {
@@ -54,6 +55,18 @@
 
         a:hover {
             color: var(--apple-blue-hover);
+        }
+
+        /* --- APPLE SCROLL ANIMATIONS --- */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .nav-wrapper {
@@ -90,6 +103,7 @@
         .nav-links a {
             color: var(--apple-text);
             opacity: 0.8;
+            transition: opacity 0.2s;
         }
 
         .nav-links a:hover {
@@ -107,13 +121,13 @@
         }
 
         section {
-            padding: 80px 0;
+            padding: 100px 0;
         }
 
         .hero-section {
             text-align: center;
-            padding-top: 100px;
-            padding-bottom: 60px;
+            padding-top: 120px;
+            padding-bottom: 80px;
         }
 
         .hero-section .badge {
@@ -124,48 +138,96 @@
             font-weight: 600;
             padding: 6px 14px;
             border-radius: 980px;
-            margin-bottom: 12px;
+            margin-bottom: 16px;
         }
 
         .hero-section h1 {
-            font-size: 56px;
-            line-height: 1.07143;
-            margin-bottom: 15px;
+            font-size: 64px;
+            line-height: 1.05;
+            margin-bottom: 20px;
+            font-weight: 700;
+            letter-spacing: -0.025em;
         }
 
         .hero-section p.tagline {
-            font-size: 24px;
-            line-height: 1.16667;
+            font-size: 26px;
+            line-height: 1.2;
             font-weight: 500;
             color: var(--apple-text-muted);
-            margin-bottom: 30px;
-            max-width: 700px;
+            margin-bottom: 40px;
+            max-width: 750px;
             margin-left: auto;
             margin-right: auto;
         }
 
+        /* --- BUTTONS --- */
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
         .btn-large {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             background-color: var(--apple-blue);
             color: white;
-            padding: 18px 31px;
+            padding: 16px 32px;
             border-radius: 980px;
             font-size: 17px;
             font-weight: 600;
-            transition: background 0.2s, transform 0.1s;
+            transition: background 0.2s, transform 0.2s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
         .btn-large:hover {
             background-color: var(--apple-blue-hover);
+            transform: scale(1.02);
         }
 
         .btn-large:active {
             transform: scale(0.98);
         }
 
+        /* Big GitHub Button */
+        .btn-github {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background-color: #1d1d1f;
+            color: white;
+            padding: 16px 32px;
+            border-radius: 980px;
+            font-size: 17px;
+            font-weight: 600;
+            transition: background 0.2s, transform 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .btn-github:hover {
+            background-color: #000000;
+            color: white;
+            transform: scale(1.02);
+        }
+
+        .btn-github:active {
+            transform: scale(0.98);
+        }
+
+        .btn-github img {
+            width: 24px;
+            height: 24px;
+            object-fit: contain;
+            filter: invert(1); /* Macht das schwarze Logo auf dem dunklen Button weiß */
+        }
+
         .section-headline {
             text-align: center;
-            font-size: 40px;
+            font-size: 44px;
             line-height: 1.1;
             margin-bottom: 20px;
             max-width: 700px;
@@ -175,9 +237,9 @@
 
         .section-intro-text {
             text-align: center;
-            font-size: 21px;
+            font-size: 22px;
             color: var(--apple-text-muted);
-            margin-bottom: 70px;
+            margin-bottom: 80px;
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
@@ -187,7 +249,7 @@
             display: flex;
             align-items: center;
             gap: 60px;
-            margin-bottom: 100px;
+            margin-bottom: 120px;
         }
 
         .showcase-block.reverse {
@@ -199,12 +261,12 @@
         }
 
         .showcase-text h3 {
-            font-size: 28px;
+            font-size: 32px;
             margin-bottom: 15px;
         }
 
         .showcase-text p {
-            font-size: 17px;
+            font-size: 18px;
             color: var(--apple-text-muted);
             margin-bottom: 20px;
         }
@@ -215,9 +277,9 @@
         }
 
         .showcase-text li {
-            font-size: 15px;
+            font-size: 16px;
             color: var(--apple-text);
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             display: flex;
             align-items: center;
             gap: 10px;
@@ -235,9 +297,14 @@
             background: #121214;
             border-radius: 18px;
             padding: 12px;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.12);
             overflow: hidden;
-            border: 1px solid rgba(0,0,0,0.1);
+            border: 1px solid rgba(0,0,0,0.05);
+            transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .screenshot-container:hover {
+            transform: scale(1.01) translateY(-5px);
         }
 
         .screenshot-container img {
@@ -259,8 +326,13 @@
             background: white;
             padding: 24px;
             border-radius: var(--border-radius-small);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.01);
             border: 1px solid rgba(0,0,0,0.03);
+            transition: transform 0.3s ease;
+        }
+
+        .spec-group:hover {
+            transform: translateY(-3px);
         }
 
         .spec-group h4 {
@@ -393,11 +465,13 @@
         }
 
         @media (max-width: 800px) {
-            .hero-section h1 { font-size: 40px; }
-            .section-headline { font-size: 32px; }
+            .hero-section h1 { font-size: 44px; }
+            .section-headline { font-size: 34px; }
             .showcase-block { flex-direction: column !important; text-align: center; gap: 30px; }
             .showcase-text li { justify-content: center; }
             .os-setup-container { grid-template-columns: 1fr; }
+            .hero-buttons { flex-direction: column; gap: 14px; }
+            .btn-large, .btn-github { width: 100%; max-width: 320px; }
         }
     </style>
 </head>
@@ -419,20 +493,25 @@
     </div>
 
     <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="container">
-            <span class="badge">Windows & Mac — PC & Laptop Only</span>
-            <h1>NovaX7. Refined Media Control.</h1>
-            <p class="tagline">📢 Hello Editors! The Program is ready! Download from anywhere, completely local and DRM-free.</p>
+    <section class="hero-section container">
+        <span class="badge">Windows & Mac — PC & Laptop Only</span>
+        <h1>NovaX7. Refined Media Control.</h1>
+        <p class="tagline">📢 Hello Editors! The Program is ready! Download from anywhere, completely local and DRM-free.</p>
+        
+        <div class="hero-buttons">
             <a href="https://github.com/NovaX7-Universal/NovaX7/archive/refs/heads/main.zip" class="btn-large">
                 🚀 Download Client (.zip)
             </a>
-            <p style="font-size: 14px; color: var(--apple-text-muted); margin-top: 15px;">An absolute all-in-one entertainment ecosystem operating completely offline on your hardware configuration.</p>
+            <a href="https://github.com/NovaX7-Universal/NovaX7" target="_blank" class="btn-github">
+                <img src="github.PNG" alt="GitHub Logo"> View on GitHub
+            </a>
         </div>
+        
+        <p style="font-size: 14px; color: var(--apple-text-muted); margin-top: 20px;">An absolute all-in-one entertainment ecosystem operating completely offline on your hardware configuration.</p>
     </section>
 
     <!-- Main Features Showcase -->
-    <section id="downloads">
+    <section id="downloads" class="scroll-reveal">
         <div class="container">
             <h2 class="section-headline">Your Downloader. Powered by yt-dlp.</h2>
             <p class="section-intro-text">Fetch, manage, and enjoy media from over 1,000 sites with custom quality control and audio/video format processing overrides.</p>
@@ -456,7 +535,7 @@
     </section>
 
     <!-- Library Section -->
-    <section id="library" style="background-color: var(--apple-section-bg);">
+    <section id="library" style="background-color: var(--apple-section-bg);" class="scroll-reveal">
         <div class="container">
             <h2 class="section-headline">Audio & Video Libraries. Synced.</h2>
             <p class="section-intro-text">Import raw media directly into dedicated asset directories. NovaX7 reads, logs, and processes structural attributes on launch.</p>
@@ -480,7 +559,7 @@
     </section>
 
     <!-- Tech Specs Full Inventory Dashboard -->
-    <section id="specs">
+    <section id="specs" class="scroll-reveal">
         <div class="container">
             <h2 class="section-headline">The Blueprint. Everything Included.</h2>
             <p class="section-intro-text">NovaX7 is a heavy-duty suite designed to put full localized command back into your hands.</p>
@@ -540,7 +619,7 @@
                         <li>• Video ➔ Video encoding</li>
                         <li>• Video extraction ➔ Audio</li>
                         <li>• Audio rendering ➔ Video loops</li>
-                        <li>• H.264 + AAC system matching</li>
+                        <li>• H.262 + AAC system matching</li>
                     </ul>
                 </div>
                 <div class="spec-group">
@@ -578,7 +657,7 @@
     </section>
 
     <!-- Customization Layout Profile -->
-    <section style="background-color: var(--apple-section-bg);">
+    <section style="background-color: var(--apple-section-bg);" class="scroll-reveal">
         <div class="container">
             <h2 class="section-headline">Personalized Aesthetics.</h2>
             <div class="showcase-block">
@@ -594,7 +673,7 @@
     </section>
 
     <!-- Utilities panel showcase -->
-    <section>
+    <section class="scroll-reveal">
         <div class="container">
             <h2 class="section-headline">Integrated Automation Utilities.</h2>
             <div class="showcase-block reverse">
@@ -614,7 +693,7 @@
     </section>
 
     <!-- Keyboard Shortcuts Layout Dashboard -->
-    <section id="shortcuts" style="background-color: var(--apple-section-bg);">
+    <section id="shortcuts" style="background-color: var(--apple-section-bg);" class="scroll-reveal">
         <div class="container">
             <h2 class="section-headline">Master Control. At Your Fingertips.</h2>
             <p class="section-intro-text">Navigate and interact with NovaX7 at lightning speed using standard physical input macros.</p>
@@ -636,7 +715,7 @@
     </section>
 
     <!-- Installation Instructions Layout -->
-    <section id="install">
+    <section id="install" class="scroll-reveal">
         <div class="container">
             <h2 class="section-headline">Simple Deployment Framework.</h2>
             <p class="section-intro-text">Initialize the Python suite on your system using deployment steps below.</p>
@@ -682,7 +761,7 @@
     </section>
 
     <!-- Final CTA -->
-    <section style="background-color: var(--apple-section-bg); text-align: center; border-top: 1px solid rgba(0,0,0,0.05);">
+    <section style="background-color: var(--apple-section-bg); text-align: center; border-top: 1px solid rgba(0,0,0,0.05);" class="scroll-reveal">
         <div class="container">
             <h2 class="section-headline">Experience NovaX7 Today.</h2>
             <a href="https://github.com/NovaX7-Universal/NovaX7/archive/refs/heads/main.zip" class="btn-large">
@@ -699,6 +778,29 @@
             <p style="margin-top: 10px;">PC & Laptop systems only. Explore the official source repository on <a href="https://github.com/NovaX7-Universal/NovaX7">GitHub</a>.</p>
         </div>
     </footer>
+
+    <!-- APPLE-STYLE INTERSECTION OBSERVER SCRIPT -->
+    <script>
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1 // Löst aus, sobald 10% der Sektion sichtbar sind
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target); // Animation wird nur einmal abgespielt
+                }
+            });
+        }, observerOptions);
+
+        // Alle Sektionen mit der Klasse .scroll-reveal ins Visier nehmen
+        document.querySelectorAll('.scroll-reveal').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
 
 </body>
 </html>
